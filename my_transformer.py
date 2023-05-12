@@ -236,7 +236,7 @@ class Encoder(nn.Module):
         self.layers = nn.ModuleList([SingleEncoderLayer(d_model, heads) for _ in range(N)])
 
     def forward(self, src, mask):
-        # x: [batch_size, seq_len_SRC]
+        # src: [batch_size, seq_len_SRC]
         x = self.emb(src)
         # x: [batch_size, seq_len_SRC, d_model]
         x = self.pe(x)
