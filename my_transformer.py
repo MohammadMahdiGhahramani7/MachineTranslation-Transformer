@@ -43,7 +43,7 @@ class PositionalEncoding(nn.Module):
         the embedding vector wont be lost when we add them together.
         '''
         # x: [batch_size, seq_len_SRC/TRG, d_model]      
-        x = x * math.sqrt(self.d_model)
+        x = x * math.sqrt(self.d_model) # In the embedding layers, we multiply those weights by sqrt(d_model)
 
         _, seq_len, _ = x.size()
         x = x + self.positional_emb[:seq_len, :]
