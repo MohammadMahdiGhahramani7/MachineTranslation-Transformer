@@ -258,7 +258,7 @@ class Decoder(nn.Module):
         self.layers = nn.ModuleList([SingleDecoderLayer(d_model, heads) for _ in range(N)])
 
     def forward(self, trg, enc, src_mask, trg_mask):
-        # x: [batch_size, seq_len_TRG]
+        # trg: [batch_size, seq_len_TRG]
         x = self.emb(trg)
         # x: [batch_size, seq_len_TRG, d_model]
         x = self.pe(x)
